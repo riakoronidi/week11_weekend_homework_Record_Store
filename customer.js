@@ -49,4 +49,12 @@ Customer.prototype.sort = function(property, orderType){
   return _.orderBy(this.myRecords, [property], [orderType]);
 }
 
+Customer.prototype.compare = function(customer1, customer2){
+  if(customer1.customerTotal() > customer2.customerTotal()){
+    return customer1.name + " has more in the record collection than " + customer2.name;
+  }else{
+    return customer2.name + " has more in the record collection than " + customer1.name;
+  }
+}
+
 module.exports = Customer;

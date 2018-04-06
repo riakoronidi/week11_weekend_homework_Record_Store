@@ -90,8 +90,14 @@ describe('Customer', function() {
     assert.deepStrictEqual(customer.sort("price", "desc"), [record2, record1, record3]);
   });
 
-  xit("Customer should be able to compare the value of their collection with another customer.", function() {
-    assert.strictEqual(store.inventory.length, 2);
+  it("Customer should be able to compare the value of their collection with another customer.", function() {
+    customer.buyFromStore(record1, store);
+    customer.addRecordToCustomer(record2);
+    customer1.addRecordToCustomer(record3);
+
+    assert.strictEqual(customer.customerTotal(), 28);
+    assert.strictEqual(customer1.customerTotal(), 10);
+    assert.strictEqual(customer1.compare(customer, customer1), "Ria has more in the record collection than Chris");
   });
 
 

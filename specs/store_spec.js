@@ -12,6 +12,7 @@ describe('Store', function() {
     store = new Store("Ria", "Manchester");
     record1 = new Record("James", "Laid", "Alternative Rock", 13);
     record2 = new Record("The Beatles", "A Hard Day's Night", "Rock", 15);
+    record3 = new Record("Scorpions", "Holiday", "Rock", 10);
     store.addRecord(record1);
     store.addRecord(record2);
   })
@@ -39,6 +40,11 @@ describe('Store', function() {
   it("Create a method that reports the financial situation of the Store, showing the balance and value of inventory.", function() {
     store.sell();
     assert.strictEqual(store.totalOfInventory(), "Balance is 13 and value of inventory is 15.");
+  });
+
+  it("Create a method that allows the store to view all Records of a given Genre.", function() {
+    store.addRecord(record3);
+    assert.deepStrictEqual(store.RecordsByGenre("Rock"), [record2, record3]);
   });
 
 

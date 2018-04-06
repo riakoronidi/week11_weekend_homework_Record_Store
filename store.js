@@ -37,4 +37,9 @@ Store.prototype.totalOfInventory = function(){
   return "Balance is " + this.balance + " and value of inventory is " + total_record_price + ".";
 }
 
+Store.prototype.RecordsByGenre = function(genre){
+  return _.filter(this.inventory, {genre: genre});
+}
+
+
 module.exports = Store;

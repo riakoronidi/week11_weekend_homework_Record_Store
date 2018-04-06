@@ -45,8 +45,8 @@ Customer.prototype.valuableRecord = function(){
   return _.maxBy(this.myRecords, "price");
 }
 
-// Customer.prototype.sort = function(price){
-//   return _.sortBy(this.myRecords, [price]);
-// }
+Customer.prototype.sort = function(property, orderType){
+  return _.orderBy(this.myRecords, [property], [orderType]);
+}
 
 module.exports = Customer;

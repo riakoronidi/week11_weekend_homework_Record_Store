@@ -80,11 +80,14 @@ describe('Customer', function() {
     assert.strictEqual(customer.valuableRecord(), record2);
   });
 
-  xit("Customer should be able to sort their records by value. (ascending or descending).", function() {
+  it("Customer should be able to sort their records by value. (ascending or descending).", function() {
+    customer.buyFromStore(record1, store);
+    customer.addRecordToCustomer(record2);
+    customer.addRecordToCustomer(record3);
     //ascending
-    assert.strictEqual(customer.sort(), 2);
+    assert.deepStrictEqual(customer.sort("price", "asc"), [record3, record1, record2]);
     //descending
-    assert.strictEqual(customer.sort(), 2);
+    assert.deepStrictEqual(customer.sort("price", "desc"), [record2, record1, record3]);
   });
 
   xit("Customer should be able to compare the value of their collection with another customer.", function() {

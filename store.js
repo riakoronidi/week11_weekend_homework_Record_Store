@@ -31,9 +31,12 @@ Store.prototype.sell = function(){
 
 Store.prototype.totalOfInventory = function(){
   var total_record_price = 0;
-  this.inventory.forEach(function(element) {
-    total_record_price += element.price;
-  });
+  // this.inventory.forEach(function(element) {
+  //   total_record_price += element.price;
+  // });
+  //refactored the store's inventory total
+  total_record_price = _.sumBy(this.inventory, 'price');
+
   return "Balance is " + this.balance + " and value of inventory is " + total_record_price + ".";
 }
 

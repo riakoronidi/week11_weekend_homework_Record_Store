@@ -59,6 +59,11 @@ describe('Customer', function() {
     assert.strictEqual(customer1.buyFromStore(record1, store), "Not enough cash to buy a record");
   });
 
+  xit("Customer should be able to view the total value of their collection.", function() {
+    assert.strictEqual(customer.customerTotal(), );
+  });
+
+
 
 
 

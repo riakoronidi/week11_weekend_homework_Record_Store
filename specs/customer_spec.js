@@ -73,12 +73,18 @@ describe('Customer', function() {
     assert.deepStrictEqual(customer.customerRecordsByGenre("Rock"), 25);
   });
 
-  xit("Customer should be able to view their most valuable record.", function() {
-    assert.strictEqual(store.inventory.length, 2);
+  it("Customer should be able to view their most valuable record.", function() {
+    customer.buyFromStore(record1, store);
+    customer.addRecordToCustomer(record2);
+    customer.addRecordToCustomer(record3);
+    assert.strictEqual(customer.valuableRecord(), record2);
   });
 
   xit("Customer should be able to sort their records by value. (ascending or descending).", function() {
-    assert.strictEqual(store.inventory.length, 2);
+    //ascending
+    assert.strictEqual(customer.sort(), 2);
+    //descending
+    assert.strictEqual(customer.sort(), 2);
   });
 
   xit("Customer should be able to compare the value of their collection with another customer.", function() {

@@ -41,4 +41,12 @@ Customer.prototype.customerRecordsByGenre = function(genre){
   return total_price_by_genre;
 }
 
+Customer.prototype.valuableRecord = function(){
+  return _.maxBy(this.myRecords, "price");
+}
+
+// Customer.prototype.sort = function(price){
+//   return _.sortBy(this.myRecords, [price]);
+// }
+
 module.exports = Customer;

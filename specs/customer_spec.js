@@ -65,9 +65,25 @@ describe('Customer', function() {
     assert.strictEqual(customer.customerTotal(), 23);
   });
 
+  it("Customer should be able to view the total value of all records of a given Genre.", function() {
+    customer.buyFromStore(record1, store);
+    customer.addRecordToCustomer(record2);
+    customer.addRecordToCustomer(record3);
+    assert.strictEqual(customer.myRecords.length, 3);
+    assert.deepStrictEqual(customer.customerRecordsByGenre("Rock"), 25);
+  });
 
+  xit("Customer should be able to view their most valuable record.", function() {
+    assert.strictEqual(store.inventory.length, 2);
+  });
 
+  xit("Customer should be able to sort their records by value. (ascending or descending).", function() {
+    assert.strictEqual(store.inventory.length, 2);
+  });
 
+  xit("Customer should be able to compare the value of their collection with another customer.", function() {
+    assert.strictEqual(store.inventory.length, 2);
+  });
 
 
 });

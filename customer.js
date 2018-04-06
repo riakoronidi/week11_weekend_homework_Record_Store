@@ -33,4 +33,12 @@ Customer.prototype.customerTotal = function(){
   return total_my_record_price;
 }
 
+Customer.prototype.customerRecordsByGenre = function(genre){
+  var filteredRecords = [];
+  var total_price_by_genre = 0;
+  filteredRecords = _.filter(this.myRecords, {genre: genre});
+  total_price_by_genre = _.sumBy(filteredRecords, 'price');
+  return total_price_by_genre;
+}
+
 module.exports = Customer;

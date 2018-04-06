@@ -12,6 +12,7 @@ describe('Customer', function() {
 
   beforeEach(function(){
     customer = new Customer("Ria", 30);
+    customer1 = new Customer("Chris", 5);
     store = new Store("Ria", "Manchester");
     record1 = new Record("James", "Laid", "Alternative Rock", 13);
     record2 = new Record("The Beatles", "A Hard Day's Night", "Rock", 15);
@@ -29,14 +30,36 @@ describe('Customer', function() {
     assert.strictEqual(store.inventory.length, 2);
   });
 
+  it("Get Customer's Inventory size.", function() {
+    customer.addRecordToCustomer(record3);
+    assert.strictEqual(customer.myRecords.length, 1);
+  });
+
   it("Customer can buy and sell records", function() {
+    //customer can buy
     customer.buyFromStore(record1, store);
     assert.strictEqual(customer.myRecords.length, 1);
     assert.strictEqual(store.inventory.length, 1);
-
+    //customer can sell
     customer.sellToStore(record1, store);
     assert.strictEqual(store.inventory.length, 2);
   });
+
+  it("Customer should have cash that increase and decreases with buying and selling.", function() {
+    //customers cash decrease when buying a record
+    customer.buyFromStore(record1, store);
+    assert.strictEqual(customer.cash, 17);
+    //customers cash increase when selling a record
+    customer.sellToStore(record1, store);
+    customer.sellToStore(record2, store);
+    assert.strictEqual(customer.cash, 45);
+  });
+
+  it("Customer shouldn't be able to buy a Record if he can't afford it.", function() {
+    assert.strictEqual(customer1.buyFromStore(record1, store), "Not enough cash to buy a record");
+  });
+
+
 
 
 

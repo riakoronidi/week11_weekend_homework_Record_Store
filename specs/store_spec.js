@@ -24,7 +24,6 @@ describe('Store', function() {
 
   it("Add some Records to the Store's Inventory.", function() {
     assert.strictEqual(store.inventory.length, 2);
-    assert.strictEqual(store.balance, 28);
   });
 
 
@@ -34,8 +33,14 @@ describe('Store', function() {
 
   it("Create a method so the Record Store can sell a Record and adjusts the Store's balance to account for the Record being sold.", function() {
     store.sell();
-    assert.strictEqual(store.balance, 15);
+    assert.strictEqual(store.balance, 13);
   });
+
+  it("Create a method that reports the financial situation of the Store, showing the balance and value of inventory.", function() {
+    store.sell();
+    assert.strictEqual(store.totalOfInventory(), "Balance is 13 and value of inventory is 15.");
+  });
+
 
 
 

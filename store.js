@@ -9,7 +9,6 @@ var Store = function(name, city){
 
 Store.prototype.addRecord = function(record){
   this.inventory.push(record);
-  this.balance += record.price;
 }
 
 Store.prototype.inventoryList = function(){
@@ -26,8 +25,16 @@ Store.prototype.sell = function(){
     //if not, remove one record
     var firstRecord = this.inventory.shift();
     //substact that records price from balance
-    this.balance -= firstRecord.price;
+    this.balance += firstRecord.price;
   }
+}
+
+Store.prototype.totalOfInventory = function(){
+  var total_record_price = 0;
+  this.inventory.forEach(function(element) {
+    total_record_price += element.price;
+  });
+  return "Balance is " + this.balance + " and value of inventory is " + total_record_price + ".";
 }
 
 module.exports = Store;

@@ -24,15 +24,17 @@ describe('Store', function() {
 
   it("Add some Records to the Store's Inventory.", function() {
     assert.strictEqual(store.inventory.length, 2);
+    assert.strictEqual(store.balance, 28);
   });
+
 
   it("Create a method that lists the inventory.", function() {
     assert.deepEqual(store.inventoryList(), ["James Laid Alternative Rock 13", "The Beatles A Hard Day's Night Rock 15"]);
   });
 
-  xit("Create a method so the Record Store can sell a Record and adjusts the Store's balance to account for the Record being sold.", function() {
+  it("Create a method so the Record Store can sell a Record and adjusts the Store's balance to account for the Record being sold.", function() {
     store.sell();
-    assert.strictEqual(store.balance, 28);
+    assert.strictEqual(store.balance, 15);
   });
 
 

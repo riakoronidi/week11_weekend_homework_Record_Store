@@ -9,6 +9,7 @@ var Store = function(name, city){
 
 Store.prototype.addRecord = function(record){
   this.inventory.push(record);
+  this.balance += record.price;
 }
 
 Store.prototype.inventoryList = function(){
@@ -19,6 +20,14 @@ Store.prototype.inventoryList = function(){
   return inventoryDetails;
 };
 
-
+Store.prototype.sell = function(){
+  //check if inventory is empty
+  if(this.inventory !== []){
+    //if not, remove one record
+    var firstRecord = this.inventory.shift();
+    //substact that records price from balance
+    this.balance -= firstRecord.price;
+  }
+}
 
 module.exports = Store;

@@ -27,4 +27,10 @@ Customer.prototype.addRecordToCustomer = function(record){
   this.myRecords.push(record);
 }
 
+Customer.prototype.customerTotal = function(){
+  var total_my_record_price = 0;
+  total_my_record_price = _.sumBy(this.myRecords, 'price');
+  return total_my_record_price;
+}
+
 module.exports = Customer;

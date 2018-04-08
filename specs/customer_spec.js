@@ -5,10 +5,6 @@ var Store = require('../store.js');
 const _ = require("lodash");
 
 describe('Customer', function() {
-  var customer;
-  var store;
-  var record1;
-  var record2;
 
   beforeEach(function(){
     customer = new Customer("Ria", 30);

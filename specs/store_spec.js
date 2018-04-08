@@ -4,9 +4,6 @@ var Record = require('../record.js');
 const _ = require("lodash");
 
 describe('Store', function() {
-  var store;
-  var record1;
-  var record2;
 
   beforeEach(function(){
     store = new Store("Ria", "Manchester");
@@ -46,11 +43,6 @@ describe('Store', function() {
     store.addRecord(record3);
     assert.deepStrictEqual(store.RecordsByGenre("Rock"), [record2, record3]);
   });
-
-
-
-
-
 
 
 });

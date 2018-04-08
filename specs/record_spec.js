@@ -3,7 +3,6 @@ var Record = require('../record.js');
 const _ = require("lodash");
 
 describe('Record', function() {
-  var record1;
 
   beforeEach(function(){
     record1 = new Record("James", "Laid", "Alternative Rock", 13);
@@ -20,7 +19,6 @@ describe('Record', function() {
   it("Create a method that prints out the Record's properties as a string.", function() {
     assert.strictEqual(record1.join(),"James Laid Alternative Rock 13" );
   });
-
 
 
 });
